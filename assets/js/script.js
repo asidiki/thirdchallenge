@@ -1,7 +1,7 @@
 // Assignment code here
 
 //input variables
-var lenght
+var input
 var selectNumbers;
 var selectSpcChar;
 var selectUprcase;
@@ -58,6 +58,7 @@ function generatePassword() {
   //all selected
   } else if (selectNumbers && selectSpcChar && selectUprcase && selectLwrcase) {
     selectedChoices = SpcChar.concat(Numbers, Letters, UprCase);
+
   // 3 selected - 1
   } else if (selectSpcChar && selectNumbers && selectLwrcase) {
     selectedChoices = SpcChar.concat(Numbers, Letters);
@@ -70,13 +71,47 @@ function generatePassword() {
   //3 selected - 4
   } else if (selectNumbers && selectLwrcase && selectUprcase) {
     selectedChoices = Numbers.concat(Letters, UprCase);
+
+  // 2 seletced - 1
+  } else if (selectSpcChar && selectNumbers) {
+    selectedChoices = SpcChar.concat(Numbers);
+  // 2 selected - 2
+  } else if (selectSpcChar && selectLwrcase) {
+    selectedChoices = SpcChar.concat(Letters);
+  // 2 selected -3
+  } else if (selectSpcChar && selectUprcase) {
+    selectedChoices = SpcChar.concat(UprCase);
+  //2 selected -4
+  } else if (selectLwrcase && selectNumbers) {
+    selectedChoices = Letters.concat(Numers);
+  //2 selected -5
+  } else if (selectLwrcase && selectUprcase) {
+    selectedChoices = Letters.concat(UprCase);
+  //2 selected -6
+  } else if (selectNumbers && selectUprcase) {
+    selectedChoices = Numbers.concat(UprCase);
+
+  //1 selected
+  }else if (selectLwrcase) {
+    selectedChoices = Letters;
+  }else if (selectNumbers) {
+    selectedChoices = Numbers;
+  }else if (selectSpcChar) {
+    selectedChoices = SpcChar;
+  }else if (selectUprcase) {
+    selectedChoices = UprCase;
+  };
+
+  var pwd = [];
+
+  //random selection of all variables
+  for (var i = 0; i < input; i++) {
+    var selection = selectedChoices[Math.floor(Math.random() * selectedChoices.length)];
+    pwd.push(selection);
   }
 
-
-
-
-
-
+  var genpwd = pwd.join("");
+  return genpwd;
 
 }
 
