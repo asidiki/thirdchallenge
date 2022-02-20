@@ -1,7 +1,7 @@
 // Assignment code here
 
 //input variables
-var input
+var input;
 var selectNumbers;
 var selectSpcChar;
 var selectUprcase;
@@ -24,14 +24,7 @@ UprCase = Letters.map(CnvUprCase);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -112,6 +105,15 @@ function generatePassword() {
 
   var genpwd = pwd.join("");
   return genpwd;
+
+}
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 
 }
 
